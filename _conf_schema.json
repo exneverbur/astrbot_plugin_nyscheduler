@@ -1,0 +1,96 @@
+{
+  "groups": {
+    "description": "需要推送内容的群组唯一标识符列表",
+    "type": "list",
+    "hint": "填写需要接收推送的群组唯一标识符，如: 机器人名称:GroupMessage:你的群号",
+    "obvious_hint": true,
+    "default": ["机器人名称:GroupMessage:你的群号"]
+  },
+  "push_time": {
+    "description": "推送时间(以服务器时区为准)",
+    "type": "string",
+    "hint": "填写推送的时间，如: 08:00,18:00",
+    "default": "08:00"
+  },
+  "enable_news": {
+    "description": "开启或关闭新闻推送",
+    "type": "bool",
+    "default": true
+  },
+  "news_api": {
+    "description": "今日新闻api",
+    "type": "string",
+    "hint": "使用 https://api.nycnm.cn/API/60s.php 接口，客户端参数支持 ?format=json/text/image",
+    "obvious_hint": true,
+    "default": "https://api.nycnm.cn/API/60s.php"
+  },
+  "format": {
+    "description": "接口返回格式",
+    "type": "string",
+    "hint": "支持 json/text/image 三种格式",
+    "options": [
+      "json",
+      "text",
+      "image"
+    ],
+    "default": "text"
+  },
+  "enable_moyu": {
+    "description": "开启或关闭摸鱼推送",
+    "type": "bool",
+    "default": true
+  },
+  "moyu_format": {
+    "description": "摸鱼接口返回格式",
+    "type": "string",
+    "hint": "支持 json/text/image 三种",
+    "options": ["json", "text", "image"],
+    "default": "image"
+  },
+  "moyu_api": {
+    "description": "摸鱼日历API",
+    "type": "string",
+    "hint": "使用 https://api.nycnm.cn/API/moyu.php 接口，参数 ?format=json/text/image",
+    "obvious_hint": true,
+    "default": "https://api.nycnm.cn/API/moyu.php"
+  }
+  ,
+  "enable_gold": {
+    "description": "开启或关闭金价推送",
+    "type": "bool",
+    "default": true
+  },
+  "gold_format": {
+    "description": "今日金价接口返回格式",
+    "type": "string",
+    "hint": "支持 json/text/image 三种",
+    "options": ["json", "text", "image"],
+    "default": "image"
+  },
+  "gold_api": {
+    "description": "今日金价API",
+    "type": "string",
+    "hint": "使用 https://api.nycnm.cn/API/jinjia.php 接口，参数 ?format=image",
+    "obvious_hint": true,
+    "default": "https://api.nycnm.cn/API/jinjia.php"
+  },
+  "enable_ai": {
+    "description": "开启或关闭AI资讯推送",
+    "type": "bool",
+    "default": true
+  },
+  "ai_format": {
+    "description": "AI资讯接口返回格式",
+    "type": "string",
+    "hint": "支持 json/text/image 三种",
+    "options": ["json", "text", "image"],
+    "default": "image"
+  },
+  "ai_api": {
+    "description": "AI资讯API",
+    "type": "string",
+    "hint": "使用 https://api.nycnm.cn/API/aizixun.php 接口，参数 ?format=image",
+    "obvious_hint": true,
+    "default": "https://api.nycnm.cn/API/aizixun.php"
+  }
+}

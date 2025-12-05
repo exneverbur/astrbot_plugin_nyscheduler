@@ -18,6 +18,12 @@
     "hint": "统一密钥，所有接口共享",
     "default": ""
   },
+  "timeout": {
+    "description": "请求超时时间(秒)",
+    "type": "int",
+    "hint": "API请求的超时时间，默认30秒",
+    "default": 30
+  },
   "enable_news": {
     "description": "开启或关闭新闻推送",
     "type": "bool",

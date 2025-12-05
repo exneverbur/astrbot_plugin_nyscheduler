@@ -16,7 +16,7 @@ from astrbot.core.message.message_event_result import MessageChain
     "astrbot_nyscheduler",
     "柠柚",
     "这是 AstrBot 的一个定时推送插件。包含60s，摸鱼日历，今日金价，AI资讯。",
-    "1.0.1",
+    "1.0.2",
 )
 class Daily60sNewsPlugin(Star):
     """
@@ -41,6 +41,7 @@ class Daily60sNewsPlugin(Star):
         self.ai_format = getattr(self.config, "ai_format", "image")
         self.ai_api = getattr(self.config, "ai_api", "https://api.nycnm.cn/API/aizixun.php")
         self.api_key = getattr(self.config, "api_key", "")
+        self.timeout = getattr(self.config, "timeout", 30)
         logger.info(f"插件配置: {self.config}")
         self._monitoring_task = asyncio.create_task(self._daily_task())
 
@@ -160,7 +161,7 @@ class Daily60sNewsPlugin(Star):
 
     async def _fetch_news_text(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.format
         if fmt == "image":
             fmt = "json"
@@ -196,7 +197,7 @@ class Daily60sNewsPlugin(Star):
 
     async def _fetch_news_image_path(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.format
         if fmt == "text":
             fmt = "json"
@@ -370,7 +371,7 @@ class Daily60sNewsPlugin(Star):
             yield event.plain_result(f"获取摸鱼日历失败: {e}")
     async def _moyu_fetch_text(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.moyu_format
         if fmt == "image":
             fmt = "json"
@@ -410,7 +411,7 @@ class Daily60sNewsPlugin(Star):
 
     async def _moyu_fetch_image_path(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.moyu_format
         if fmt == "text":
             fmt = "json"
@@ -559,7 +560,7 @@ class Daily60sNewsPlugin(Star):
             yield event.plain_result(f"获取金价失败: {e}")
     async def _gold_fetch_text(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.gold_format
         if fmt == "image":
             fmt = "json"
@@ -599,7 +600,7 @@ class Daily60sNewsPlugin(Star):
 
     async def _gold_fetch_image_path(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.gold_format
         if fmt == "text":
             fmt = "json"
@@ -748,7 +749,7 @@ class Daily60sNewsPlugin(Star):
             yield event.plain_result(f"获取AI资讯失败: {e}")
     async def _ai_fetch_text(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.ai_format
         if fmt == "image":
             fmt = "json"
@@ -788,7 +789,7 @@ class Daily60sNewsPlugin(Star):
 
     async def _ai_fetch_image_path(self) -> Tuple[str, bool]:
         retries = 3
-        timeout = 10
+        timeout = self.timeout
         fmt = self.ai_format
         if fmt == "text":
             fmt = "json"

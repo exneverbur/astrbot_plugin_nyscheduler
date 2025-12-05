@@ -83,6 +83,7 @@ CoCo机器人:GroupMessage:QQ群号或QQ号
   - `groups`：接收推送的群组唯一标识符列表。
   - `push_time`：定时推送时间，格式 `HH:MM`。
   - `api_key`：全局接口密钥（可留空）。填写后会在所有请求上附加 `apikey` 参数。
+  - `timeout`：请求超时时间，单位秒，默认 `30`。
 
 - 新闻：
   - `enable_news`：是否开启新闻推送。
